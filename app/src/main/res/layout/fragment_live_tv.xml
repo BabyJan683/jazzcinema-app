@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg_dark">
+
+    <!-- Category filter tabs -->
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:scrollbars="none" android:background="@color/bg_card">
+        <LinearLayout android:id="@+id/cat_tabs" android:layout_width="wrap_content"
+            android:layout_height="48dp" android:orientation="horizontal"
+            android:paddingHorizontal="8dp" android:gravity="center_vertical"/>
+    </HorizontalScrollView>
+
+    <!-- Mini player (16:9 ratio) -->
+    <FrameLayout android:id="@+id/player_container"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="0.4" android:background="#000">
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/player_view"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            app:show_buffering="always"
+            app:resize_mode="fit"
+            xmlns:app="http://schemas.android.com/apk/res-auto"/>
+        <!-- Placeholder before channel selected -->
+        <LinearLayout android:id="@+id/player_placeholder"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:orientation="vertical" android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📺" android:textSize="48sp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Select a channel to watch" android:textColor="@color/text_muted"
+                android:textSize="13sp" android:layout_marginTop="8dp"/>
+        </LinearLayout>
+        <!-- Open in fullscreen -->
+        <ImageButton android:id="@+id/btn_fullscreen"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:layout_gravity="bottom|end" android:layout_margin="8dp"
+            android:src="@android:drawable/ic_menu_crop"
+            android:tint="@color/white" android:background="@android:color/transparent"/>
+        <!-- Now playing label -->
+        <TextView android:id="@+id/txt_now_playing"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start" android:layout_margin="8dp"
+            android:background="#CC000000" android:textColor="@color/white"
+            android:textSize="11sp" android:paddingHorizontal="8dp"
+            android:paddingVertical="3dp" android:visibility="gone"/>
+    </FrameLayout>
+
+    <!-- Channel list -->
+    <TextView android:id="@+id/txt_cat_header"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:textColor="@color/white" android:textSize="13sp"
+        android:textStyle="bold" android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp" android:background="@color/bg_card"
+        android:text="📺 All Channels"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_channels"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="0.6"
+        android:divider="@null" android:clipToPadding="false"/>
+</LinearLayout>

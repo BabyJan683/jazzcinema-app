@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="@color/bg_dark">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="🔥 Trending — Last 10 Watched" android:textColor="@color/white"
+        android:textSize="16sp" android:textStyle="bold"
+        android:paddingHorizontal="16dp" android:paddingVertical="12dp"/>
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_trending"
+        android:layout_width="match_parent" android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

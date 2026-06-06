@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:background="#0A0A0F">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingBottom="32dp">
+        <!-- Hero -->
+        <FrameLayout android:layout_width="match_parent" android:layout_height="240dp">
+            <ImageView android:id="@+id/img_hero" android:layout_width="match_parent" android:layout_height="match_parent" android:scaleType="centerCrop"/>
+            <View android:layout_width="match_parent" android:layout_height="match_parent" android:background="@drawable/gradient_banner"/>
+            <ImageButton android:id="@+id/btn_back"
+                android:layout_width="40dp" android:layout_height="40dp" android:layout_margin="12dp"
+                android:background="#66000000" android:src="@android:drawable/ic_media_previous" android:scaleType="centerInside"/>
+        </FrameLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:padding="16dp">
+            <TextView android:id="@+id/txt_title" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#FFFFFF" android:textSize="22sp" android:textStyle="bold"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="4dp">
+                <TextView android:id="@+id/txt_category" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#E50914" android:textSize="12sp" android:textStyle="bold"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="  •  " android:textColor="#888888" android:textSize="12sp"/>
+                <TextView android:id="@+id/txt_year" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#888888" android:textSize="12sp"/>
+            </LinearLayout>
+            <TextView android:id="@+id/txt_meta" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="#888888" android:textSize="12sp" android:layout_marginTop="2dp"/>
+            <!-- Play + Download -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="16dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btn_play_now"
+                    android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1"
+                    android:text="▶  Play Now" android:backgroundTint="#E50914" android:textColor="#FFFFFF" android:textStyle="bold" android:layout_marginEnd="8dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btn_download_now"
+                    android:layout_width="0dp" android:layout_height="48dp" android:layout_weight="1"
+                    android:text="⬇  Download" android:backgroundTint="#00B4D8" android:textColor="#FFFFFF" android:textStyle="bold"/>
+            </LinearLayout>
+            <!-- Watch List + WhatsApp -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                <com.google.android.material.button.MaterialButton android:id="@+id/btn_watchlist"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1"
+                    android:text="+ Watch List" android:textColor="#FFFFFF" android:layout_marginEnd="8dp"/>
+                <com.google.android.material.button.MaterialButton android:id="@+id/btn_whatsapp"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1"
+                    android:text="📦 Subscribe" android:textColor="#25D366"/>
+            </LinearLayout>
+            <!-- Overview -->
+            <TextView android:id="@+id/txt_overview" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#CCCCCC" android:textSize="13sp" android:lineSpacingExtra="4dp"
+                android:layout_marginTop="16dp" android:visibility="gone"/>
+            <!-- Cast -->
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="CAST" android:textColor="#E50914" android:textSize="11sp"
+                android:textStyle="bold" android:letterSpacing="0.12" android:layout_marginTop="16dp"/>
+            <LinearLayout android:id="@+id/cast_container"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="8dp" android:visibility="gone"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

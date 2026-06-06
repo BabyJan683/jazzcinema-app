@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp"
+    android:paddingTop="14dp"
+    android:paddingBottom="6dp">
+
+    <TextView
+        android:id="@+id/txt_season_header"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Season 01"
+        android:textColor="#00B4D8"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.05"/>
+
+    <ImageView
+        android:id="@+id/btn_sort_order"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        android:alpha="0.6"
+        android:contentDescription="Sort"/>
+
+</LinearLayout>

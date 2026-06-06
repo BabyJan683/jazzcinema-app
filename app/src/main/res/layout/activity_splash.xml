@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!-- Full-screen splash image -->
+    <ImageView android:id="@+id/img_splash"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <!-- Dark overlay -->
+    <View android:layout_width="match_parent" android:layout_height="match_parent"
+        android:background="#AA000000"/>
+
+    <!-- Center: logo + app name -->
+    <LinearLayout
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center" android:orientation="vertical"
+        android:gravity="center">
+
+        <ImageView android:id="@+id/img_logo"
+            android:layout_width="100dp" android:layout_height="100dp"
+            android:scaleType="centerCrop"
+            android:background="#22FFFFFF"/>
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="JAZZ CINEMA PRO"
+            android:textColor="#FFFFFF" android:textSize="30sp"
+            android:textStyle="bold" android:letterSpacing="0.12"
+            android:layout_marginTop="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Stream · Download · Watch"
+            android:textColor="#AAFFFFFF" android:textSize="13sp"
+            android:letterSpacing="0.15" android:layout_marginTop="4dp"/>
+
+        <!-- v8.7 version badge -->
+        <TextView
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="v8.7"
+            android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:layout_marginTop="6dp"/>
+    </LinearLayout>
+
+    <!-- Bottom: progress section -->
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="vertical" android:gravity="center"
+        android:paddingBottom="56dp"
+        android:paddingLeft="32dp" android:paddingRight="32dp">
+
+        <!-- DB load counts (shown after each DB query completes) -->
+        <TextView android:id="@+id/txt_movie_count"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#CCFFFFFF" android:textSize="12sp"
+            android:layout_marginBottom="4dp"
+            android:visibility="gone"/>
+
+        <TextView android:id="@+id/txt_tiktok_count"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#CCFFFFFF" android:textSize="12sp"
+            android:layout_marginBottom="12dp"
+            android:visibility="gone"/>
+
+        <!-- Step message -->
+        <TextView android:id="@+id/txt_splash_step"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Connecting to server..."
+            android:textColor="#DDFFFFFF" android:textSize="13sp"
+            android:layout_marginBottom="10dp"/>
+
+        <!-- Horizontal progress bar (Netflix-style red) -->
+        <ProgressBar
+            android:id="@+id/splash_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent" android:layout_height="4dp"
+            android:max="100" android:progress="0"
+            android:progressTint="#E50914"
+            android:progressBackgroundTint="#44FFFFFF"/>
+
+        <!-- Percent label -->
+        <TextView android:id="@+id/txt_splash_percent"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="0%"
+            android:textColor="#AAFFFFFF" android:textSize="11sp"
+            android:layout_marginTop="6dp"
+            android:layout_gravity="end"/>
+
+    </LinearLayout>
+
+</FrameLayout>

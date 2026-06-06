@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:orientation="vertical" android:paddingVertical="4dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="horizontal" android:gravity="center_vertical"
+        android:paddingHorizontal="12dp" android:paddingVertical="6dp">
+
+        <TextView android:id="@+id/txt_category_label"
+            android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"
+            android:textColor="#FFFFFF" android:textSize="15sp" android:textStyle="bold"/>
+
+        <!-- "See All" button — same style, stands out with card-like pill -->
+        <TextView android:id="@+id/btn_see_more"
+            android:layout_width="wrap_content" android:layout_height="28dp"
+            android:text="See All →"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="#33FFFFFF"
+            android:paddingHorizontal="10dp"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/rv_row"
+        android:layout_width="match_parent" android:layout_height="175dp"
+        android:paddingHorizontal="8dp" android:clipToPadding="false"/>
+</LinearLayout>

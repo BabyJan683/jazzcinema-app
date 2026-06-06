@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Search-results card (also used in category rows) -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="110dp"
+    android:layout_height="185dp"
+    android:layout_marginHorizontal="4dp"
+    app:cardBackgroundColor="#141414"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- Poster image -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="145dp">
+
+            <ImageView
+                android:id="@+id/img_card_thumb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="#1F1F1F"/>
+
+            <!-- Gradient overlay at bottom of poster -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_gravity="bottom"
+                android:background="#AA000000"/>
+        </FrameLayout>
+
+        <!-- Title below poster — white, always readable -->
+        <TextView
+            android:id="@+id/txt_card_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#FFFFFF"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:paddingTop="5dp"
+            android:paddingBottom="2dp"
+            android:paddingHorizontal="6dp"
+            android:lineSpacingExtra="1dp"
+            android:background="#141414"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

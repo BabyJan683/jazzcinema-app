@@ -1,0 +1,506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0A0A0A" android:paddingBottom="80dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             APPEARANCE
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="APPEARANCE" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <LinearLayout android:id="@+id/row_theme"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row"
+            android:layout_marginBottom="1dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="App Theme" android:textColor="#FFFFFF" android:textSize="15sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Default Red or Light Blue + Dark Orange"
+                    android:textColor="#A3A3A3" android:textSize="12sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <TextView android:id="@+id/txt_theme"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#00B4D8" android:textSize="14sp"
+                android:textStyle="bold" android:text="Default"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             MY ACCOUNT
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="MY ACCOUNT" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#141414"
+            android:padding="16dp" android:layout_marginBottom="1dp">
+            <TextView android:id="@+id/txt_email"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#FFFFFF" android:textSize="16sp" android:textStyle="bold"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginTop="6dp">
+                <TextView android:id="@+id/txt_status"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:textColor="#00B4D8" android:textSize="13sp"/>
+                <TextView android:id="@+id/txt_plan"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#F5C518" android:textSize="13sp" android:textStyle="bold"/>
+            </LinearLayout>
+            <TextView android:id="@+id/txt_expiry"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#6B6B6B" android:textSize="12sp" android:layout_marginTop="4dp"/>
+            <TextView android:id="@+id/txt_daily"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#6B6B6B" android:textSize="12sp" android:layout_marginTop="2dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_logout"
+                android:layout_width="match_parent" android:layout_height="44dp"
+                android:text="LOGOUT" android:backgroundTint="#E50914"
+                android:textColor="#FFFFFF" android:textStyle="bold"
+                android:layout_marginTop="14dp"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             DATA PACKAGE
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="DATA PACKAGE" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <!-- Active package card -->
+        <LinearLayout android:id="@+id/layout_data_package"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#141414"
+            android:padding="16dp" android:layout_marginBottom="1dp"
+            android:visibility="gone">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical">
+                <TextView android:id="@+id/txt_data_package_name"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:textColor="#F5C518"
+                    android:textSize="15sp" android:textStyle="bold" android:text="5 GB Package"/>
+                <TextView android:id="@+id/txt_data_percent"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#E50914" android:textSize="16sp"
+                    android:textStyle="bold" android:text="0%"/>
+            </LinearLayout>
+            <ProgressBar
+                android:id="@+id/pb_data_usage"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent" android:layout_height="6dp"
+                android:layout_marginTop="10dp" android:layout_marginBottom="8dp"
+                android:progressDrawable="@drawable/bg_play_btn"
+                android:progress="0" android:max="100"/>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView android:id="@+id/txt_data_used"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:textColor="#FFFFFF"
+                    android:textSize="13sp" android:text="0 MB used"/>
+                <TextView android:id="@+id/txt_data_total"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:textColor="#6B6B6B" android:textSize="13sp" android:text="of 5 GB"/>
+            </LinearLayout>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="Live TV data is not counted • Resets monthly"
+                android:textColor="#6B6B6B" android:textSize="11sp"
+                android:layout_marginTop="6dp"/>
+        </LinearLayout>
+
+        <!-- No package card -->
+        <LinearLayout android:id="@+id/layout_no_package"
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#141414"
+            android:padding="20dp" android:layout_marginBottom="1dp"
+            android:gravity="center">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="📦 Koi Package Active Nahi Hai"
+                android:textColor="#FFFFFF" android:textSize="15sp"
+                android:textStyle="bold" android:gravity="center"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Package lene ke liye WhatsApp karen ya Faizan Mobile Shop jayen"
+                android:textColor="#6B6B6B" android:textSize="12sp"
+                android:gravity="center" android:layout_marginTop="6dp"/>
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_subscribe_package"
+                android:layout_width="match_parent" android:layout_height="44dp"
+                android:text="📱 Package Len — WhatsApp Karen"
+                android:backgroundTint="#25D366"
+                android:textColor="#FFFFFF" android:layout_marginTop="14dp"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             PLAYBACK
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="PLAYBACK" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <!-- Auto-play next -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Auto-play next" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_autoplay"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Picture-in-Picture -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Picture-in-Picture" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_pip"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Swipe gestures -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Swipe Gestures"
+                    android:textColor="#FFFFFF" android:textSize="15sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Brightness / Volume"
+                    android:textColor="#A3A3A3" android:textSize="12sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_gestures"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Double-tap skip -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Double-tap to skip 10s" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_doubleskip"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Long-press 2× speed -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Long-press for 2× speed" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_longpress2x"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Hardware acceleration -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Hardware Acceleration" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_hardaccel"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Background playback -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Background playback" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_background"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- Resume from last position -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resume from last position" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_resume"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             DEFAULT PLAYER
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="DEFAULT PLAYER" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <LinearLayout android:id="@+id/row_default_player"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Default Player"
+                    android:textColor="#FFFFFF" android:textSize="15sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Built-in / MX Player / VLC"
+                    android:textColor="#A3A3A3" android:textSize="12sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <TextView android:id="@+id/txt_default_player"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#00B4D8" android:textSize="14sp"
+                android:textStyle="bold" android:text="Built-in"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             QUALITY
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="QUALITY" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <LinearLayout android:id="@+id/row_stream_quality"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Stream Quality" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <TextView android:id="@+id/txt_stream_quality"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#00B4D8" android:textSize="14sp"
+                android:textStyle="bold" android:text="Auto"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_dl_quality"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Download Quality" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <TextView android:id="@+id/txt_dl_quality"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#00B4D8" android:textSize="14sp"
+                android:textStyle="bold" android:text="720p"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_speed_default"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Default Playback Speed" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <TextView android:id="@+id/txt_speed_default"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#00B4D8" android:textSize="14sp"
+                android:textStyle="bold" android:text="1.0×"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/row_subtitle_lang"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Subtitle Language" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <TextView android:id="@+id/txt_subtitle_lang"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#00B4D8" android:textSize="14sp"
+                android:textStyle="bold" android:text="English"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             GENERAL
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="GENERAL" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Push Notifications" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_notifications"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Auto-download on Wi-Fi" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_autodownload"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Wi-Fi Only (streaming)" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_wifi_only"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Data Saver Mode" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_datasaver"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enable Subtitles" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_subtitles"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Incognito / Private Mode" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_incognito"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Parental Lock" android:textColor="#FFFFFF" android:textSize="15sp"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial android:id="@+id/toggle_parental"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                style="@style/NetflixSwitch"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             SUPPORT
+             ════════════════════════════════════════════════════════════════ -->
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="SUPPORT" android:textColor="#E50914" android:textSize="11sp"
+            android:textStyle="bold" android:letterSpacing="0.15"
+            android:paddingHorizontal="16dp" android:paddingTop="20dp" android:paddingBottom="8dp"
+            android:background="#0A0A0A"/>
+
+        <LinearLayout android:id="@+id/row_whatsapp"
+            android:layout_width="match_parent" android:layout_height="60dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="@drawable/bg_settings_row" android:layout_marginBottom="1dp">
+            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1" android:orientation="vertical">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="WhatsApp Support"
+                    android:textColor="#FFFFFF" android:textSize="15sp"/>
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="+923086578490 · Faizan Mobile Shop"
+                    android:textColor="#A3A3A3" android:textSize="12sp" android:layout_marginTop="2dp"/>
+            </LinearLayout>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Chat ▶" android:textColor="#25D366" android:textSize="13sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════════════
+             ABOUT
+             ════════════════════════════════════════════════════════════════ -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical" android:background="#141414"
+            android:padding="20dp" android:gravity="center"
+            android:layout_marginTop="12dp" android:layout_marginBottom="4dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="JAZZ CINEMA PRO"
+                android:textColor="#E50914" android:textSize="22sp" android:textStyle="bold"
+                android:letterSpacing="0.05"/>
+            <TextView android:id="@+id/txt_app_version"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#6B6B6B" android:textSize="12sp"
+                android:layout_marginTop="4dp"/>
+            <TextView android:id="@+id/txt_db_info"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:textColor="#6B6B6B" android:textSize="11sp"
+                android:layout_marginTop="6dp" android:gravity="center"
+                android:visibility="gone"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

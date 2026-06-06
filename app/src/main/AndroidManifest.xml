@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.cinema.jazz">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_DATA_SYNC"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"/>
+
+    <queries>
+        <package android:name="com.mxtech.videoplayer.ad"/>
+        <package android:name="com.mxtech.videoplayer.pro"/>
+        <package android:name="com.mxtech.videoplayer.v2"/>
+        <package android:name="com.mxtech.videoplayer.v2.ad"/>
+        <package android:name="com.mxtech.videoplayer"/>
+        <package android:name="org.videolan.vlc"/>
+        <package android:name="org.videolan.vlc.betav"/>
+        <package android:name="org.videolan.vlc.debug"/>
+        <intent>
+            <action android:name="android.intent.action.VIEW"/>
+            <data android:mimeType="video/*"/>
+        </intent>
+        <package android:name="com.guoshi.httpcanary"/>
+        <package android:name="com.guoshi.httpcanary.premium"/>
+        <package android:name="app.greyshirts.sslcapture"/>
+    </queries>
+
+    <application
+        android:name=".JazzCinemaApp"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <!-- Splash v8.7 — with DB loading progress bar -->
+        <activity android:name=".SplashActivity" android:exported="true"
+            android:noHistory="true" android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
+        <!-- Onboarding / Auth -->
+        <activity android:name=".onboarding.OnboardingActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".auth.LoginActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".auth.RegisterActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Main -->
+        <activity android:name=".MainActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Movie detail -->
+        <activity android:name=".ui.detail.MovieDetailActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Series episodes picker -->
+        <activity android:name=".ui.detail.SeriesEpisodesActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- See All grid -->
+        <activity android:name=".ui.seeall.SeeAllActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Blocked / Maintenance / Update -->
+        <activity android:name=".BlockedActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>
+
+        <!-- Admin Panel -->
+        <activity android:name=".ui.admin.AdminPanelActivity" android:exported="false"
+            android:screenOrientation="portrait"/>
+
+        <!-- Player (landscape, PiP) -->
+        <activity android:name=".ui.player.PlayerActivity" android:exported="false"
+            android:configChanges="orientation|screenSize|smallestScreenSize|screenLayout|keyboardHidden"
+            android:supportsPictureInPicture="true"
+            android:launchMode="singleTop"/>
+
+        <!-- Download notification receiver -->
+        <receiver android:name=".util.DownloadActionReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.cinema.jazz.DOWNLOAD_PAUSE"/>
+                <action android:name="com.cinema.jazz.DOWNLOAD_RESUME"/>
+                <action android:name="com.cinema.jazz.DOWNLOAD_CANCEL"/>
+            </intent-filter>
+        </receiver>
+
+        <!-- v8.7 Boot receiver — restarts background sync after device reboot -->
+        <receiver android:name=".util.BootReceiver"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </receiver>
+
+    </application>
+</manifest>

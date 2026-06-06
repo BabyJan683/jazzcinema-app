@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ── Video surface ─────────────────────────────────────────────────── -->
+    <androidx.media3.ui.PlayerView
+        android:id="@+id/player_view"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        app:use_controller="false" app:resize_mode="fit"/>
+
+    <!-- ── Buffering spinner — red, centered ─────────────────────────────── -->
+    <ProgressBar
+        android:id="@+id/buffering_spinner"
+        android:layout_width="56dp" android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:indeterminateTint="#E50914"
+        android:visibility="visible"/>
+
+    <!-- ── Error overlay ─────────────────────────────────────────────────── -->
+    <TextView android:id="@+id/txt_error"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center" android:textColor="#E50914"
+        android:textSize="28sp" android:textStyle="bold"
+        android:fontFamily="monospace" android:visibility="gone"/>
+
+    <!-- ── Gesture overlay (transparent — captures swipe gestures) ────────── -->
+    <View android:id="@+id/gesture_overlay"
+        android:layout_width="match_parent" android:layout_height="match_parent"/>
+
+    <!-- ── LEFT: Brightness indicator ───────────────────────────────────── -->
+    <LinearLayout android:id="@+id/brightness_indicator"
+        android:layout_width="72dp" android:layout_height="140dp"
+        android:layout_gravity="center_vertical|start" android:layout_marginStart="24dp"
+        android:orientation="vertical" android:gravity="center"
+        android:background="#BB000000" android:visibility="gone">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="☀" android:textSize="22sp" android:textColor="#FFFFFF"/>
+        <TextView android:id="@+id/txt_brightness"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#FFFFFF" android:textSize="12sp" android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- ── RIGHT: Volume indicator ──────────────────────────────────────── -->
+    <LinearLayout android:id="@+id/volume_indicator"
+        android:layout_width="72dp" android:layout_height="140dp"
+        android:layout_gravity="center_vertical|end" android:layout_marginEnd="24dp"
+        android:orientation="vertical" android:gravity="center"
+        android:background="#BB000000" android:visibility="gone">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🔊" android:textSize="22sp" android:textColor="#FFFFFF"/>
+        <TextView android:id="@+id/txt_volume"
+            android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:textColor="#FFFFFF" android:textSize="12sp" android:layout_marginTop="4dp"/>
+    </LinearLayout>
+
+    <!-- ── Lock overlay (full screen tap-to-unlock) ─────────────────────── -->
+    <LinearLayout android:id="@+id/lock_overlay"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:gravity="center" android:orientation="vertical" android:visibility="gone">
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="🔒  Tap to unlock"
+            android:textColor="#DDFFFFFF" android:textSize="14sp"
+            android:background="#99000000"
+            android:paddingHorizontal="20dp" android:paddingVertical="12dp"/>
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════════════════════
+         MAIN CONTROLS OVERLAY
+         Auto-hides after 3 seconds. Full-height column: top bar → spacer → center → bottom.
+         ════════════════════════════════════════════════════════════════════ -->
+    <LinearLayout android:id="@+id/controls_overlay"
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ── TOP BAR — title + action buttons ──────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="56dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="4dp"
+            android:background="@drawable/gradient_player_top">
+
+            <!-- Back arrow -->
+            <ImageButton android:id="@+id/btn_back"
+                android:layout_width="48dp" android:layout_height="48dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"/>
+
+            <!-- Movie title -->
+            <TextView android:id="@+id/txt_title"
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="#FFFFFF" android:textSize="15sp"
+                android:textStyle="bold" android:fontFamily="sans-serif-medium"
+                android:singleLine="true" android:ellipsize="end"
+                android:paddingHorizontal="8dp"/>
+
+            <!-- Download -->
+            <ImageButton android:id="@+id/btn_download"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:src="@drawable/ic_download"
+                android:tint="#00B4D8"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Download"/>
+
+            <!-- EXT (external player) badge -->
+            <Button android:id="@+id/btn_open_mx"
+                android:layout_width="wrap_content" android:layout_height="30dp"
+                android:text="EXT" android:textColor="#FFA500"
+                android:textSize="11sp" android:textStyle="bold"
+                android:paddingHorizontal="10dp"
+                android:background="@drawable/bg_ext_badge"
+                android:layout_marginEnd="4dp"/>
+
+            <!-- Settings -->
+            <ImageButton android:id="@+id/btn_player_settings"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:src="@android:drawable/ic_menu_manage"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Settings"/>
+
+            <!-- PiP -->
+            <ImageButton android:id="@+id/btn_pip"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:src="@android:drawable/ic_menu_crop"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <!-- Rotate -->
+            <ImageButton android:id="@+id/btn_rotate"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:src="@android:drawable/ic_menu_rotate"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <!-- Lock -->
+            <ImageButton android:id="@+id/btn_lock"
+                android:layout_width="44dp" android:layout_height="44dp"
+                android:src="@android:drawable/ic_lock_lock"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+
+        <!-- ── SPACER — pushes controls to center + bottom ────────────────── -->
+        <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1"/>
+
+        <!-- ── CENTER CONTROLS — skip back / play-pause / skip fwd ─────────── -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:gravity="center"
+            android:paddingBottom="16dp">
+
+            <!-- Skip back 10s -->
+            <ImageButton android:id="@+id/btn_skip_back"
+                android:layout_width="60dp" android:layout_height="60dp"
+                android:src="@android:drawable/ic_media_rew"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+
+            <!-- Play / Pause — larger -->
+            <ImageButton android:id="@+id/btn_play"
+                android:layout_width="76dp" android:layout_height="76dp"
+                android:src="@drawable/ic_pause"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:layout_marginHorizontal="20dp"/>
+
+            <!-- Skip forward 10s -->
+            <ImageButton android:id="@+id/btn_skip_fwd"
+                android:layout_width="60dp" android:layout_height="60dp"
+                android:src="@android:drawable/ic_media_ff"
+                android:tint="#FFFFFF"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+
+        <!-- ── BOTTOM BAR — seek + options, scrim gradient background ──────── -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/gradient_player_controls"
+            android:paddingTop="8dp" android:paddingBottom="12dp">
+
+            <!-- Time + SeekBar row -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingHorizontal="12dp" android:paddingBottom="4dp">
+
+                <TextView android:id="@+id/txt_position"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="00:00" android:textColor="#CCFFFFFF" android:textSize="11sp"
+                    android:fontFamily="monospace"/>
+
+                <SeekBar android:id="@+id/seek_bar"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:progressTint="#E50914"
+                    android:thumbTint="#E50914"
+                    android:secondaryProgressTint="#4DFFFFFF"
+                    android:layout_marginHorizontal="10dp"/>
+
+                <TextView android:id="@+id/txt_duration"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="00:00" android:textColor="#99FFFFFF" android:textSize="11sp"
+                    android:fontFamily="monospace"/>
+            </LinearLayout>
+
+            <!-- Options row: mute | speed pill | audio pill | spacer | EXT label -->
+            <LinearLayout
+                android:layout_width="match_parent" android:layout_height="40dp"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:paddingHorizontal="10dp">
+
+                <!-- Volume/Mute icon -->
+                <ImageButton android:id="@+id/btn_mute"
+                    android:layout_width="40dp" android:layout_height="40dp"
+                    android:src="@drawable/ic_volume_on"
+                    android:tint="#FFFFFF"
+                    android:background="?attr/selectableItemBackgroundBorderless"/>
+
+                <!-- Speed pill — dark bg, red border -->
+                <Button android:id="@+id/btn_speed"
+                    android:layout_width="wrap_content" android:layout_height="30dp"
+                    android:text="1.0×"
+                    android:textColor="#FFFFFF" android:textSize="12sp" android:textStyle="bold"
+                    android:paddingHorizontal="14dp"
+                    android:background="@drawable/bg_pill_red_border"
+                    android:layout_marginStart="6dp"/>
+
+                <!-- Audio / Subtitle pill -->
+                <Button android:id="@+id/btn_audio"
+                    android:layout_width="wrap_content" android:layout_height="30dp"
+                    android:text="Audio"
+                    android:textColor="#FFFFFF" android:textSize="12sp"
+                    android:paddingHorizontal="14dp"
+                    android:background="@drawable/bg_pill_dark"
+                    android:layout_marginStart="6dp"/>
+
+                <!-- Spacer -->
+                <TextView android:id="@+id/txt_speed_label"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

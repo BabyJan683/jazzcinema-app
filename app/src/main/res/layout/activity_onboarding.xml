@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical" android:background="#0A0A0F"
+    android:gravity="center" android:padding="32dp">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🎬" android:textSize="72sp" android:gravity="center"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Jazz Cinema" android:textColor="#FFFFFF" android:textSize="32sp" android:textStyle="bold" android:layout_marginTop="8dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Your Premium Movie Experience" android:textColor="#E50914" android:textSize="14sp" android:layout_marginTop="4dp"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:orientation="vertical" android:layout_marginTop="40dp"
+        android:background="#16161F" android:padding="20dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🎬  Stream movies from Jazz Drive" android:textColor="#FFFFFF" android:textSize="14sp" android:layout_marginBottom="12dp"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="📺  200+ Live TV channels" android:textColor="#FFFFFF" android:textSize="14sp" android:layout_marginBottom="12dp"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="⬇  Download for offline viewing" android:textColor="#FFFFFF" android:textSize="14sp" android:layout_marginBottom="12dp"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="🔍  Search movies by title or category" android:textColor="#FFFFFF" android:textSize="14sp"/>
+    </LinearLayout>
+    <com.google.android.material.button.MaterialButton android:id="@+id/btn_continue"
+        android:layout_width="match_parent" android:layout_height="52dp"
+        android:text="GET STARTED" android:backgroundTint="#E50914"
+        android:textColor="#FFFFFF" android:textStyle="bold" android:textSize="16sp" android:layout_marginTop="32dp"/>
+    <com.google.android.material.button.MaterialButton android:id="@+id/btn_subscribe"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:layout_width="match_parent" android:layout_height="44dp"
+        android:text="📦  Subscribe a Plan" android:textColor="#25D366" android:layout_marginTop="12dp"/>
+</LinearLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Internal private storage: ctx.getFilesDir()/downloads — used by DownloadEngine -->
+    <files-path name="private_downloads" path="downloads/"/>
+    <!-- Fallback: all of internal files dir -->
+    <files-path name="internal_files" path="."/>
+</paths>

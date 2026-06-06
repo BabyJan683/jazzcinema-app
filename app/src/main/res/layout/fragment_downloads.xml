@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:background="#0A0A0A">
+
+    <LinearLayout
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ── HEADER ──────────────────────────────────────────────────────── -->
+        <LinearLayout
+            android:layout_width="match_parent" android:layout_height="56dp"
+            android:orientation="horizontal" android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:background="#0A0A0A"
+            android:elevation="4dp">
+
+            <TextView
+                android:layout_width="0dp" android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="My Downloads"
+                android:textColor="#FFFFFF" android:textSize="20sp"
+                android:textStyle="bold" android:fontFamily="sans-serif-medium"
+                android:letterSpacing="0.01"/>
+
+            <!-- Download count badge -->
+            <TextView android:id="@+id/txt_download_count"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:textColor="#A3A3A3" android:textSize="13sp"/>
+        </LinearLayout>
+
+        <!-- 1dp divider -->
+        <View android:layout_width="match_parent" android:layout_height="1dp"
+            android:background="#1F1F1F"/>
+
+        <!-- ── LIST ────────────────────────────────────────────────────────── -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_downloads"
+            android:layout_width="match_parent" android:layout_height="match_parent"
+            android:paddingTop="8dp" android:paddingBottom="80dp"
+            android:clipToPadding="false"/>
+    </LinearLayout>
+
+    <!-- ── EMPTY STATE ──────────────────────────────────────────────────── -->
+    <LinearLayout android:id="@+id/txt_empty"
+        android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical" android:gravity="center"
+        android:visibility="gone" android:padding="32dp">
+
+        <!-- Big icon -->
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="⬇" android:textSize="72sp" android:textColor="#2A2A2A"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="No Downloads Yet"
+            android:textColor="#FFFFFF" android:textSize="20sp"
+            android:textStyle="bold" android:layout_marginTop="12dp"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="Tap Download on any movie to save it for offline viewing"
+            android:textColor="#6B6B6B" android:textSize="13sp"
+            android:gravity="center" android:layout_marginTop="8dp"
+            android:paddingHorizontal="16dp"/>
+    </LinearLayout>
+
+</FrameLayout>

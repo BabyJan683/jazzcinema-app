@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         APP THEME — inherits from Material dark base
+         ════════════════════════════════════════════════════════════ -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@color/nav_bg</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         FULL-SCREEN PLAYER (no status/nav bar)
+         ════════════════════════════════════════════════════════════ -->
+    <style name="AppTheme.Player" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">#000000</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         NETFLIX-STYLE SWITCH
+         thumb ON = red, OFF = dark gray
+         track ON = translucent red, OFF = border-only dark
+         ════════════════════════════════════════════════════════════ -->
+    <style name="NetflixSwitch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="thumbTint">@color/switch_thumb_tint</item>
+        <item name="trackTint">@color/switch_track_tint</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         NETFLIX RED BUTTON
+         ════════════════════════════════════════════════════════════ -->
+    <style name="NetflixButton" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">#E50914</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">6dp</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         OUTLINED BUTTON (used for secondary actions)
+         ════════════════════════════════════════════════════════════ -->
+    <style name="NetflixOutlineButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="strokeColor">#E50914</item>
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="cornerRadius">6dp</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SECTION HEADER LABEL (PLAYBACK, QUALITY, etc.)
+         ════════════════════════════════════════════════════════════ -->
+    <style name="SettingsSectionHeader">
+        <item name="android:textColor">#E50914</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:letterSpacing">0.15</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:paddingEnd">16dp</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:background">#0A0A0A</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         BOTTOM NAVIGATION BAR
+         ════════════════════════════════════════════════════════════ -->
+    <style name="NetflixBottomNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:background">#0F0F0F</item>
+        <item name="itemIconTint">@color/nav_icon_color</item>
+        <item name="itemTextColor">@color/nav_icon_color</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemIconSize">24dp</item>
+    </style>
+
+    <!-- ══════════════════════════════════════════════════════════════
+         SPLASH / ONBOARDING
+         ════════════════════════════════════════════════════════════ -->
+    <style name="AppTheme.Splash" parent="AppTheme">
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+</resources>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="400dp"
+    android:orientation="vertical" android:gravity="center">
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="🎬" android:textSize="56sp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="Jazz Cinema Pro" android:textColor="@color/red"
+        android:textSize="20sp" android:textStyle="bold" android:layout_marginTop="12dp"/>
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:text="Movies will appear here once your admin syncs the content from the server."
+        android:textColor="@color/text_muted" android:textSize="13sp"
+        android:gravity="center" android:layout_marginTop="8dp"
+        android:paddingHorizontal="32dp" android:lineSpacingMultiplier="1.4"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="200+ Live TV channels available →" android:textColor="@color/teal"
+        android:textSize="13sp" android:layout_marginTop="16dp"/>
+</LinearLayout>

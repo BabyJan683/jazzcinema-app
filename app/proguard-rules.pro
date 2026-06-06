@@ -1,0 +1,7 @@
+-keep class com.cinema.jazz.** { *; }
+-keep class androidx.media3.** { *; }
+-keep class com.bumptech.glide.** { *; }
+-keepclassmembers class **.R$* { public static <fields>; }
+-keepattributes Signature,Exceptions,*Annotation*
+-dontwarn okhttp3.**
+-dontwarn org.json.**

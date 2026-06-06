@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Jazz Cinema Pro app logo: red circle with film-reel play icon -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+
+    <!-- Dark background circle -->
+    <path android:fillColor="#0A0A0F"
+        android:pathData="M54,54m-54,0a54,54 0,1 1,108 0a54,54 0,1 1,-108 0"/>
+
+    <!-- Red ring -->
+    <path android:fillColor="#E50914"
+        android:pathData="M54,6C27.49,6 6,27.49 6,54C6,80.51 27.49,102 54,102C80.51,102 102,80.51 102,54C102,27.49 80.51,6 54,6ZM54,96C30.8,96 12,77.2 12,54C12,30.8 30.8,12 54,12C77.2,12 96,30.8 96,54C96,77.2 77.2,96 54,96Z"/>
+
+    <!-- Play triangle (cinema) -->
+    <path android:fillColor="#E50914"
+        android:pathData="M44,36L44,72L78,54Z"/>
+
+    <!-- Film dots top -->
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M30,20m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M44,20m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M64,20m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M78,20m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+
+    <!-- Film dots bottom -->
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M30,88m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M44,88m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M64,88m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.6"
+        android:pathData="M78,88m-3,0a3,3 0,1 1,6 0a3,3 0,1 1,-6 0"/>
+</vector>

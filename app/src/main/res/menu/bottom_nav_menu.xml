@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_home"      android:title="Home"      android:icon="@drawable/ic_nav_home"/>
+    <item android:id="@+id/nav_trending"  android:title="Shorts"    android:icon="@drawable/ic_nav_shorts"/>
+    <item android:id="@+id/nav_live"      android:title="Live TV"   android:icon="@drawable/ic_nav_live"/>
+    <item android:id="@+id/nav_downloads" android:title="Downloads" android:icon="@drawable/ic_nav_downloads"/>
+    <item android:id="@+id/nav_settings"  android:title="Settings"  android:icon="@drawable/ic_nav_settings"/>
+</menu>

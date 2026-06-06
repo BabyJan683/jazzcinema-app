@@ -1,0 +1,4 @@
+Place mysql-connector-java-8.0.33.jar here.
+Download from: https://dev.mysql.com/downloads/connector/j/
+This is required for MySQL database connectivity.
+Without it, the app will still work with Supabase auth and live TV.

@@ -1,0 +1,32 @@
+{
+  "is_active": true,
+  "maintenance_mode": false,
+  "force_update": false,
+
+  "db_host": "sql12.freesqldatabase.com",
+  "db_port": 3306,
+  "db_name": "sql12824264",
+  "db_user": "sql12824264",
+  "db_password": "zx2faqegWz",
+
+  "db_backups": [
+    {
+      "db_host": "BACKUP_HOST_1",
+      "db_port": 3306,
+      "db_name": "BACKUP_DB_NAME_1",
+      "db_user": "BACKUP_DB_USER_1",
+      "db_password": "BACKUP_DB_PASS_1"
+    }
+  ],
+
+  "tiktok_table": "Tiktok",
+
+  "offline_cache_hours": 48,
+  "offline_shorts_count": 50,
+
+  "notice_url": "https://jazzcinemanotice.great-site.net/",
+
+  "blocked_message": "Your account has been blocked. Contact support on WhatsApp.",
+  "maintenance_msg": "Jazz Cinema is under maintenance. Please try again in a few minutes.",
+  "update_message": "A new version of Jazz Cinema is available. Please update the app."
+}
