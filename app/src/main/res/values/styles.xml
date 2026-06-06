@@ -2,18 +2,6 @@
 <resources>
 
     <!-- ══════════════════════════════════════════════════════════════
-         APP THEME — inherits from Material dark base
-         ════════════════════════════════════════════════════════════ -->
-    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:windowBackground">@color/bg_dark</item>
-        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
-        <item name="android:navigationBarColor">@color/nav_bg</item>
-    </style>
-
-    <!-- ══════════════════════════════════════════════════════════════
          FULL-SCREEN PLAYER (no status/nav bar)
          ════════════════════════════════════════════════════════════ -->
     <style name="AppTheme.Player" parent="AppTheme">
